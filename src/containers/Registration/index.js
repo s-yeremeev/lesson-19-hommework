@@ -75,30 +75,25 @@ export default class RegistrationContainer extends React.PureComponent {
       }
 
       functionBlur = async function(value, inputId, errorValidation) {
-        try {
-          switch (inputId) {
-              case constant.ID_CONFIRM_PASSWORD: {
-               const passwordValue = this[constant.ID_PASSWORD].value
-               await errorValidation(passwordValue, value)
-               break
-           }
-            default: await errorValidation(value)
-          }
-          this.setState(({ errors }) => {
-            delete errors[inputId]
-            return {
-              errors: { ...errors }
-            }
-          })
-        } catch ({ message }) {         
-          this.setState(({ errors }) => ({
-            errors: {
-              ...errors,
-              [inputId]: message
-            }
+        const message = await errorValidation(value)
+          if(message) {
+            this.setState(({ errors }) => ({
+              errors: {
+                ...errors,
+                [inputId]: message
+              }
           }))
+          }
+          else {
+            this.setState(({ errors }) => {
+                  delete errors[inputId]
+                  return {
+                    errors: { ...errors }
+                  }
+                })
+          }
         }
-      }
+
       
         render () {
           const { errors } = this.state
