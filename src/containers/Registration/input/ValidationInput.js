@@ -13,7 +13,7 @@ export const firstNameIsValid = async function (value) {
   export const phoneIsValid = async function (value) {
     const regExp = /\([0-9]{3}\)\s[0-9]{3}-[0-9]{2}-[0-9]{2}$/
   
-    if (!regExp.test(value)) throw new Error("Last Name is not valid!")
+    if (!regExp.test(value)) throw new Error("Phone is not valid!")
   }
   
   export const emailIsValid = async function (value) {
