@@ -1,0 +1,6 @@
+export const ID_LASTNAME = "ID_LASTNAME"
+export const ID_FIRSTNAME = "ID_FIRSTNAME"
+export const ID_PHONE = "ID_PHONE"
+export const ID_EMAIL = "ID_EMAIL"
+export const ID_PASSWORD = "ID_PASSWORD"
+export const ID_CONFIRM_PASSWORD = "ID_CONFIRM_PASSWORD"

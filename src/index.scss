@@ -1,0 +1,336 @@
+@import "~bulma/css/bulma.css";
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, nav ul, nav li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    border: 0 none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+ol, ul {
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote::before, blockquote::after, q::before, q::after {
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a {
+    text-decoration: none;
+}
+.txt-rt {
+    text-align: right;
+}
+.txt-lt {
+    text-align: left;
+}
+.txt-center {
+    text-align: center;
+}
+.float-rt {
+    float: right;
+}
+.float-lt {
+    float: left;
+}
+.clear {
+    clear: both;
+}
+.pos-relative {
+    position: relative;
+}
+.pos-absolute {
+    position: absolute;
+}
+.vertical-base {
+    vertical-align: baseline;
+}
+.vertical-top {
+    vertical-align: top;
+}
+nav.vertical ul li {
+    display: block;
+}
+nav.horizontal ul li {
+    display: inline-block;
+}
+img {
+    max-width: 100%;
+}
+body {
+    background: rgba(0, 0, 0, 0) url("https://p.w3layouts.com/demos/aug-2016/29-08-2016/flat_sign_up_form/web/images/bg.jpg") no-repeat fixed 0 87% / cover ;
+    font-family: "Lato",sans-serif;
+    text-align: center;
+}
+.header-w3l {
+    margin: 2% auto;
+}
+.header-w3l h1 {
+    color: white;
+    font-size: 3em;
+    font-weight: 400;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+}
+.main-agileits {
+    background: rgba(125, 63, 152, 0.52) none repeat scroll 0 0;
+    font-family: "Lato",sans-serif;
+    margin: 2% auto;
+    width: 32%;
+}
+.sub-head {
+    color: white;
+    font-size: 38px;
+    letter-spacing: 3px;
+    padding: 42px;
+    text-transform: uppercase;
+}
+.sub-main {
+    position: relative;
+}
+.icon1, .icon2, .icon3, .icon4, .icon5, .icon6 {
+    color: rgba(0, 0, 0, 0.83);
+    font-size: 18px;
+    left: 51px;
+    position: absolute;
+    width: 22px;
+}
+.icon1 {
+    top: 12px;
+}
+.icon2 {
+    top: 75px;
+}
+.icon3 {
+    top: 138px;
+}
+.icon4 {
+    top: 201px;
+}
+.icon5 {
+    top: 264px;
+}
+.icon6 {
+    top: 327px;
+}
+.sub-main input[type="text"], .sub-main input[type="password"] {
+    border: medium none;
+    border-radius: 2px;
+    color: black;
+    font-family: "Lato",sans-serif;
+    font-size: 1.1em;
+    margin: 4px 0 18px 1px;
+    outline: medium none;
+    padding: 10px 38px;
+    width: 68%;
+}
+.sub-main input[type="submit"] {
+    background: #d52685 none repeat scroll 0 0;
+    border: medium none;
+    border-radius: 2px;
+    color: white;
+    cursor: pointer;
+    font-family: "Lato",sans-serif;
+    font-size: 22px;
+    margin: 17px;
+    padding: 14px 50px;
+    text-transform: uppercase;
+    transition: all 0.5s ease 0s;
+}
+.sub-main input[type="submit"]:hover {
+    background: #d9edf7 none repeat scroll 0 0;
+    color: black;
+    transition: all 0.5s ease 0s;
+}
+.footer-w3 p {
+    color: white;
+    font-size: 0.9em;
+}
+.footer-w3 p a {
+    color: #d20962;
+}
+.footer-w3 p a:hover {
+    text-decoration: underline;
+}
+@media (max-width: 1440px) {
+.main-agileits {
+    width: 35%;
+}
+}
+@media (max-width: 1366px) {
+.main-agileits {
+    width: 36%;
+}
+}
+@media (max-width: 1280px) {
+.main-agileits {
+    width: 40%;
+}
+}
+@media (max-width: 1024px) {
+.main-agileits {
+    width: 50%;
+}
+}
+@media (max-width: 991px) {
+.main-agileits {
+    width: 52%;
+}
+}
+@media (max-width: 800px) {
+.main-agileits {
+    width: 64%;
+}
+}
+@media (max-width: 768px) {
+.main-agileits {
+    width: 68%;
+}
+}
+@media (max-width: 736px) {
+.main-agileits {
+    width: 70%;
+}
+.header-w3l h1 {
+    font-size: 38px;
+}
+.sub-head {
+    font-size: 35px;
+}
+}
+@media (max-width: 667px) {
+.main-agileits {
+    width: 78%;
+}
+.header-w3l h1 {
+    font-size: 39px;
+}
+}
+@media (max-width: 640px) {
+.main-agileits {
+    width: 80%;
+}
+.header-w3l h1 {
+    letter-spacing: 5px;
+}
+}
+@media (max-width: 600px) {
+.main-agileits {
+    width: 84%;
+}
+.header-w3l h1 {
+    letter-spacing: 4px;
+}
+}
+@media (max-width: 568px) {
+.main-agileits {
+    width: 88%;
+}
+.header-w3l h1 {
+    letter-spacing: 3px;
+}
+}
+@media (max-width: 480px) {
+.main-agileits {
+    width: 92%;
+}
+.icon1, .icon2, .icon3, .icon4, .icon5, .icon6 {
+    left: 38px;
+}
+.header-w3l h1 {
+    font-size: 2.8em;
+    letter-spacing: 0;
+}
+.sub-head {
+    padding: 36px;
+}
+.footer-w3 p {
+    font-size: 13px;
+}
+.footer-w3 {
+    padding: 11px 0 32px;
+}
+}
+@media (max-width: 414px) {
+.main-agileits {
+    width: 95%;
+}
+.icon1, .icon2, .icon3, .icon4, .icon5, .icon6 {
+    left: 31px;
+}
+.header-w3l h1 {
+    font-size: 34px;
+    letter-spacing: 3px;
+}
+.header-w3l {
+    margin: 8% auto;
+}
+.sub-main input[type="submit"] {
+    margin: 52px;
+    padding: 14px 70px;
+}
+.sub-head {
+    font-size: 30px;
+}
+}
+@media (max-width: 375px) {
+.icon1, .icon2, .icon3, .icon4, .icon5, .icon6 {
+    left: 26px;
+}
+.header-w3l h1 {
+    font-size: 32px;
+    letter-spacing: 3px;
+}
+.sub-head {
+    font-size: 30px;
+}
+}
+@media (max-width: 384px) {
+.header-w3l h1 {
+    font-size: 32px;
+}
+.sub-head {
+    font-size: 28px;
+}
+.icon1, .icon2, .icon3, .icon4, .icon5, .icon6 {
+    left: 25px;
+}
+.footer-w3 {
+    line-height: 23px;
+}
+.sub-main input[type="submit"] {
+    margin: 19px;
+    padding: 14px 70px;
+}
+.sub-head {
+    padding: 18px 0 10px;
+}
+}
+@media (max-width: 320px) {
+.header-w3l h1 {
+    font-size: 34px;
+    letter-spacing: 3px;
+}
+.sub-head {
+    font-size: 28px;
+}
+.icon1, .icon2, .icon3, .icon4, .icon5, .icon6 {
+    left: 18px;
+}
+.sub-main input[type="submit"] {
+    padding: 14px 49px;
+}
+.footer-w3 {
+    line-height: 23px;
+}
+}
