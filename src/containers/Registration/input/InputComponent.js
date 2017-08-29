@@ -8,8 +8,8 @@ export default ({
     classNameSpan,
     classNameI,
     inputId,
-    validation,
-    functionRef,
+    validations,
+    functionref,
     errorValidation,
     blur
 }) => {
@@ -17,13 +17,13 @@ export default ({
 return(
     <div>
         <input 
-                ref={functionRef}
+                ref={functionref}
                 placeholder={placeholderText}
                 name={name}
                 className={`input ${!errorValidation ? null : "is-danger"}`}
                 type={type} 
                 required=""
-                onBlur={({ target: { value }}) => blur(value, inputId, validation)}
+                onBlur={({ target: { value }}) => blur(value, inputId, validations)}
         />
         {
             !errorValidation ? null : (<p className="help is-danger">{errorValidation}</p>)

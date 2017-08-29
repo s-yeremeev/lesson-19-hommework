@@ -1,103 +1,116 @@
 import React from "react"
 import InputComponent from "./input/InputComponent"
+import ButtonComponent from "./button/ButtonComponent"
 import * as validation from "./input/ValidationInput"
 import * as constant from "./const"
 
 const inputArr = [
   {
-    placeholderText: "First Name",
-    name: "Name",
+    placeholderText: constant.FIRST_NAME,
+    name: constant.FIRST_NAME,
     classNameInput: "name",
-    type: "text",
+    type: constant.TYPE_FIELDS_TEXT,
     classNameSpan: "icon1",
     classNameI: "fa fa-user",
-    inputId: constant.ID_LASTNAME,
-    validation: validation.firstNameIsValid
+    inputId: constant.ID_FIRSTNAME,
+    validations: validation.validate
   },
   {
-    placeholderText: "Last Name",
-    name: "Name",
+    placeholderText: constant.LAST_NAME,
+    name: constant.LAST_NAME,
     classNameInput: "name2",
-    type: "text",
+    type: constant.TYPE_FIELDS_TEXT,
     classNameSpan: "icon2",
     classNameI: "fa fa-user",
-    inputId: constant.ID_FIRSTNAME,
-    validation: validation.lastnameIsValid
+    inputId: constant.ID_LASTNAME,
+    validations: validation.validate
   },
   {
-    placeholderText: "Phone Number",
-    name: "Number",
+    placeholderText: constant.PHONE_NUMBER,
+    name: constant.PHONE_NUMBER,
     classNameInput: "number",
-    type: "text",
+    type: constant.TYPE_FIELDS_TEXT,
     classNameSpan: "icon3",
     classNameI: "fa fa-phone",
     inputId: constant.ID_PHONE,
-    validation: validation.phoneIsValid
+    validations: validation.validate
   },
   {
-    placeholderText: "Email",
-    name: "mail",
+    placeholderText: constant.EMAIL,
+    name: constant.EMAIL,
     classNameInput: "mail",
-    type: "text",
+    type: constant.TYPE_FIELDS_TEXT,
     classNameSpan: "icon4",
     classNameI: "fa fa-envelope",
     inputId: constant.ID_EMAIL,
-    validation: validation.emailIsValid
+    validations: validation.validate
   },
   {
-    placeholderText: "Password",
-    name: "Password",
+    placeholderText: constant.PASSWORD,
+    name: constant.PASSWORD,
     classNameInput: "pass",
-    type: "password",
+    type: constant.TYPE_FIELDS_PASSWORD,
     classNameSpan: "icon5",
     classNameI: "fa fa-unlock",
     inputId: constant.ID_PASSWORD,
-    validation: validation.passwordIsValid
+    validations: validation.validate
   },
   {
-    placeholderText: "Confirm Password",
-    name: "Password",
+    placeholderText: constant.CONFIRM_PASSWORD,
+    name: constant.CONFIRM_PASSWORD,
     classNameInput: "pass",
-    type: "password",
+    type: constant.TYPE_FIELDS_PASSWORD,
     classNameSpan: "icon6",
     classNameI: "fa fa-unlock",
     inputId: constant.ID_CONFIRM_PASSWORD,
-    validation: validation.confirmPasswordIsValid
+    validations: validation.validate
   }
 ]
 
 export default class RegistrationContainer extends React.PureComponent {
-      constructor(props) {
-        super(props)
-        this.state = {
-          errors: {}
+  constructor(props) {
+    super(props)
+    this.state = {
+      errors: {}
+    };       
+  }
+
+   /**
+   * @param {value}
+   * @param {inputId}
+   * @function {errorValidation}
+   */
+  functionBlur = function (value, inputId, errorValidation) {
+      const passwordValue = this[constant.ID_PASSWORD].value   
+      const message = errorValidation(inputId, passwordValue, value);
+      if(message) {
+        this.setState(({ errors }) => ({
+          errors: {
+            ...errors,
+            [inputId]: message
+          }
+        }))
+      } else {
+          this.setState(({ errors }) => {
+            delete errors[inputId]
+            return {
+              errors: { ...errors }
+            }
+          })
         }       
-      }
+    }
 
-      functionBlur = async function(value, inputId, errorValidation) {
-        const message = await errorValidation(value)
-          if(message) {
-            this.setState(({ errors }) => ({
-              errors: {
-                ...errors,
-                [inputId]: message
-              }
-          }))
-          }
-          else {
-            this.setState(({ errors }) => {
-                  delete errors[inputId]
-                  return {
-                    errors: { ...errors }
-                  }
-                })
-          }
-        }
-
+    clickSignUp = function (event) {
+      event.preventDefault()
+      const _errors = inputArr.map(({ inputId, validations }) => {
+        const value = this[inputId].value
+        this.functionBlur(value, inputId, validations)
+      })
+    }
       
         render () {
           const { errors } = this.state
-
+          const registerIsDisabled = Object.keys(errors).length
           return (
             <section>
             <div> 
@@ -108,10 +121,10 @@ export default class RegistrationContainer extends React.PureComponent {
               <div className="sub-main">	
                 <form action="#" method="post">
                 {
-                  inputArr.map(({ placeholderText, name, classNameInput, type, classNameSpan, classNameI, inputId, validation }, index) => (
+                  inputArr.map(({ placeholderText, name, classNameInput, type, classNameSpan, classNameI, inputId, validations }, index) => (
                       <span key={index}>
                         <InputComponent
-                          functionref={input => this[inputId] = input}
+                          functionref={(input) => { this[inputId] = input; }}
                           blur={this.functionBlur.bind(this)}
                           errorValidation = {errors[inputId]}
                           placeholderText={placeholderText}
@@ -121,12 +134,19 @@ export default class RegistrationContainer extends React.PureComponent {
                           classNameSpan={classNameSpan}
                           classNameI={classNameI}
                           inputId={inputId}
-                          validation={validation}
+                          validations={validations}
                         />
                       </span>
                     ))
                   }                
-                  <input type="submit" value="sign up"/>
+                  <p> 
+                  <ButtonComponent 
+                    clickButton={this.clickSignUp.bind(this)} 
+                    buttonText ={"sign up"}
+                    isDisabled={registerIsDisabled}
+                    errorValidation = {errors}
+                  />
+                  </p>
                 </form>
               </div>
               <div className="clear"></div>

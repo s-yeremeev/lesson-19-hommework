@@ -1,16 +1,16 @@
 import React from "react"
 
 export default ({ 
-  classNames,
   buttonText,
   isDisabled,
-  handleClick
+  clickButton,
+  className
 }) => {
   return (
     <button
-      onClick={handleClick}
+      onClick={clickButton}
       disabled={isDisabled}
-      className={`button ${classNames.join(" ")}`}
+      className="button"
     >
       {buttonText}
     </button>
